@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+  <title>Zagadka 8</title>
+</head>
+  
+<body>
+  
+<h1>Zagadka 8</h1>
+    
+<p>Podaj imię postaci.</p>
+    
+<input type="text" id="odpowiedz" placeholder="Wpisz odpowiedż">
+<button onclick="sprawdz()">Sprawdź</button>
+  
+<p id="wynik"></p>
+
+<script>
+function sprawdz() {
+  let odp = document.getElementById("odpowiedz")
+    .value
+    .toLowerCase()
+    .replace(/\./g, "")   // usuwa kropki
+    .trim();
+
+  let poprawneOdpowiedzi = [
+    "dolores umbridge",
+    "umbridge",
+    "profesor dolores umbridge"
+  ];
+
+  if (poprawneOdpowiedzi.includes(odp)) {
+    document.getElementById("wynik").innerHTML = 
+      "<p>Dobra odpowiedź!!</p>" +
+      "<p>Podążaj mapą do miejsca na zdjęciu. Tam znajdź kolejną zagadkę i przepowiednię.</p>" +
+      '<img src="straz.jpg" width="300" style="border:4px solid gold;"><br><br>' +
+      '<img src="mapa1.jpg" width="300" style="border:4px solid gold;">';
+  }
+
+  else {
+
+    document.getElementById("wynik").innerHTML = 
+      "WOMP WOMP <br><br>" +
+      "Niepoprawna odpowiedź! Spróbuj jeszcze raz!";
+
+  }
+  
+}
+</script>
+  
+</body>
+</html>
